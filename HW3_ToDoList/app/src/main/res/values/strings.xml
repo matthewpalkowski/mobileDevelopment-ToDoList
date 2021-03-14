@@ -12,4 +12,5 @@
     <string name="taskCancelled">Discarding Changes</string>
     <string name="taskSaved">Task Saved</string>
     <string name="taskCompleted">Task Completed</string>
+    <string name="allTaskCompleted">All tasks are completed!</string>
 </resources>

@@ -18,13 +18,6 @@ import androidx.fragment.app.Fragment
  */
 class TaskEditActivity : AppCompatActivity() {
 
-    /*TODO
-     * -Button to enter an additional task
-     *      -(Extra Credit) add toast message to show that task was successfully committed
-     *          -(Note: need to clarify intended behavior to cancelling mid chain when several tasks
-     *               have been committed but most recent has not)
-     */
-
     private lateinit var commitAndContinueButton : Button
     private lateinit var commitAndReturnButton : Button
     private lateinit var discardAndReturnButton : Button
@@ -35,10 +28,6 @@ class TaskEditActivity : AppCompatActivity() {
 
     private lateinit var intentReturnToMain : Intent
 
-    /**
-     * Implementation of the onCreate method for the activity.
-     * @param savedInstanceState see Kotlin Activity class documentation for details.
-     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_task_edit)
@@ -61,10 +50,7 @@ class TaskEditActivity : AppCompatActivity() {
         discardAndReturnButton.setOnClickListener(listener)
     }
 
-    private fun validInput():Boolean {
-        //TODO Add additional validation to ensure user isn't performing SQL Injection
-        return userInput.text.toString().isNotEmpty()
-    }
+    private fun validInput():Boolean {return userInput.text.toString().isNotEmpty()}
 
     private fun Activity.hideKeyboard() {hideKeyboard(currentFocus ?: View(this))}
 
