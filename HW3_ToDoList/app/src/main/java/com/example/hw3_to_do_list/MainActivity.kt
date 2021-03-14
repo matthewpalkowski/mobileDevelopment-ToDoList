@@ -24,6 +24,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var intentTaskEdit : Intent
     private lateinit var longClickListener: ListLongClickListener
 
+    private var adapter:  ArrayAdapter<String>? = null
+
     private val REQUEST_CODE : Int = 1
     private val TASK_KEY : String = "Tasks"
 
@@ -42,7 +44,6 @@ class MainActivity : AppCompatActivity() {
         longClickListener = ListLongClickListener()
         intentTaskEdit = Intent(this,TaskEditActivity::class.java)
         addTaskButton.setOnClickListener(ButtonListener())
-        setAdapter()
         setVisibility()
     }
 
@@ -82,9 +83,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setAdapter(){
-        val adapter : ArrayAdapter<String> = ArrayAdapter(this,android.R.layout.simple_list_item_1,taskList)
-        taskListView.adapter = adapter
-        taskListView.onItemLongClickListener = longClickListener
+        if(adapter == null){
+            adapter = ArrayAdapter(this,android.R.layout.simple_list_item_1,taskList)
+            taskListView.adapter = adapter
+            taskListView.onItemLongClickListener = longClickListener
+        }
+        else{adapter?.notifyDataSetChanged()}
     }
 
     private fun setPreferences(){
@@ -110,7 +114,6 @@ class MainActivity : AppCompatActivity() {
 
     inner class ListLongClickListener : AdapterView.OnItemLongClickListener {
         override fun onItemLongClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long): Boolean {
-            val removedTask : String = taskList[position]
             taskList.removeAt(position)
             var toastText : String
             if(taskList.size == 0){toastText = resources.getString(R.string.allTaskCompleted)}
