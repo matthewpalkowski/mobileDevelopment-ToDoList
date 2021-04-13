@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">HW3_To-Do-List</string>
+    <string name="appTitle">TO-DO LIST</string>
+    <string name="addTask">Add Task</string>
+    <string name="txtDefaul">Add Task Description</string>
+    <string name="commitAndContinue">Commit and Add Another Task</string>
+    <string name="commitAndReturn">Commit Tasks and Return</string>
+    <string name="discardAndReturn">Discard Changes and Return</string>
+    <string name="noTasks">No active tasks</string>
+    <string name="invalidTask">Please enter a valid description</string>
+    <string name="submitted">Submitted</string>
+    <string name="taskCancelled">Discarding Changes</string>
+    <string name="taskSaved">Task Saved</string>
+    <string name="taskCompleted">Task Completed</string>
+    <string name="allTaskCompleted">All tasks are completed!</string>
+</resources>
